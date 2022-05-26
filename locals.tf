@@ -1,12 +1,6 @@
 locals {
-  name                 = "${var.names.product}-${var.names.environment}-${var.names.location}-vnet"
-  enforce_subnet_names = (var.naming_rules == "" ? false : var.enforce_subnet_names)
-
-  subnets = zipmap(keys(var.subnets), [for subnet in values(var.subnets) : merge(var.subnet_defaults, subnet)])
 
   route_table_associations = { for i, z in local.subnets : i => z.route_table_association if z.route_table_association != null }
-
-  peers = zipmap(keys(var.peers), [for peer in values(var.peers) : merge(var.peer_defaults, peer)])
 
   non_inline_routes = merge(values({ for route_table, info in var.route_tables :
     route_table => { for route, data in(info.use_inline_routes ? {} : info.routes) :
@@ -15,9 +9,6 @@ locals {
       }, { "table" = route_table, name = route })
     }
   })...)
-
-  # If var.aks_subnets is null then return {}, else if var.aks_subnets is not null, then return the value of var.aks_subnets
-  aks_info = (var.aks_subnets == null ? {} : var.aks_subnets)
 
   aks_subnets = merge([for id in keys(local.aks_info) :
     {
@@ -37,3 +28,14 @@ locals {
   ]...)
 
 }
+
+/*
+    name                 = "${var.names.product}-${var.names.environment}-${var.names.location}-vnet"
+
+    enforce_subnet_names = (var.naming_rules == "" ? false : var.enforce_subnet_names)
+    subnets = zipmap(keys(var.subnets), [for subnet in values(var.subnets) : merge(var.subnet_defaults, subnet)])
+    peers = zipmap(keys(var.peers), [for peer in values(var.peers) : merge(var.peer_defaults, peer)])
+    
+  # If var.aks_subnets is null then return {}, else if var.aks_subnets is not null, then return the value of var.aks_subnets
+  aks_info = (var.aks_subnets == null ? {} : var.aks_subnets)
+*/
