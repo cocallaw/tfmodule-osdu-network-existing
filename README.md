@@ -36,10 +36,10 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_existing_resource_group_name"></a> [existing\_resource\_group\_name](#input\_existing\_resource\_group\_name) | The name of an existing resource group. | `string` | n/a | yes |
-| <a name="input_existing_subnet_name_aks"></a> [existing\_subnet\_name\_aks](#input\_existing\_subnet\_name\_aks) | The name of an existing subnet for AKS. | `string` | n/a | yes |
-| <a name="input_existing_subnet_name_fe"></a> [existing\_subnet\_name\_fe](#input\_existing\_subnet\_name\_fe) | The name of an existing subnet for FE. | `string` | n/a | yes |
-| <a name="input_existing_vnet_name"></a> [existing\_vnet\_name](#input\_existing\_vnet\_name) | The name of an existing virtual network. | `string` | n/a | yes |
+| <a name="input_existing_resource_group_name"></a> [existing\_resource\_group\_name](#input\_existing\_resource\_group\_name) | The name of the existing resource group containing the virtual network. | `string` | n/a | yes |
+| <a name="input_existing_subnet_name_aks"></a> [existing\_subnet\_name\_aks](#input\_existing\_subnet\_name\_aks) | The name of the existing subnet for AKS. | `string` | n/a | yes |
+| <a name="input_existing_subnet_name_fe"></a> [existing\_subnet\_name\_fe](#input\_existing\_subnet\_name\_fe) | The name of the existing subnet for FE. | `string` | n/a | yes |
+| <a name="input_existing_vnet_name"></a> [existing\_vnet\_name](#input\_existing\_vnet\_name) | The name of the existing virtual network. | `string` | n/a | yes |
 | <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | Map of tags to apply to taggable resources in this module. By default the taggable resources are tagged with the name defined above and this map is merged in | `map(string)` | `{}` | no |
 | <a name="input_route_tables"></a> [route\_tables](#input\_route\_tables) | Maps of route tables | <pre>map(object({<br>    disable_bgp_route_propagation = bool<br>    use_inline_routes             = bool # Setting to true will revert any external route additions.<br>    routes                        = map(map(string))<br>    # keys are route names, value map is route properties (address_prefix, next_hop_type, next_hop_in_ip_address)<br>    # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route_table#route<br>  }))</pre> | `{}` | no |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | Map of subnets. Keys are subnet names, Allowed values are the same as for subnet\_defaults | `any` | `{}` | no |
