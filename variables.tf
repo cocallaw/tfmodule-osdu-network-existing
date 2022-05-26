@@ -1,20 +1,20 @@
 variable "existing_resource_group_name" {
-  description = "The name of an existing resource group."
+  description = "The name of the existing resource group containing the virtual network."
   type        = string
 }
 
 variable "existing_vnet_name" {
-  description = "The name of an existing virtual network."
+  description = "The name of the existing virtual network."
   type        = string
 }
 
 variable "existing_subnet_name_fe" {
-  description = "The name of an existing subnet for FE."
+  description = "The name of the existing subnet for FE."
   type        = string
 }
 
 variable "existing_subnet_name_aks" {
-  description = "The name of an existing subnet for AKS."
+  description = "The name of the existing subnet for AKS."
   type        = string
 }
 
