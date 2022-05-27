@@ -18,13 +18,11 @@ output "aks_sn_id" {
   value       = data.azurerm_subnet.exist_sn_aks.id
 }
   
-output "route_tables" {
-  description = "Maps of custom route tables."
-  value = { for k, v in var.route_tables :
-    k => {
-      name    = azurerm_route_table.route_table[k].name
-      id      = azurerm_route_table.route_table[k].id
-      subnets = azurerm_route_table.route_table[k].subnets
-    }
+output "aks_rt" {
+  description = "Object containing AKS route table information."
+  value       = {
+      name    = azurerm_route_table.route_table_aks.name
+      id      = azurerm_route_table.route_table_aks.id
+      subnets = azurerm_route_table.route_table_aks.subnets
   }
 }
