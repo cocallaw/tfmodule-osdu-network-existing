@@ -39,7 +39,7 @@ resource "azurerm_route_table" "route_table_aks" {
 }
 
 resource "azurerm_subnet_route_table_association" "association" {
-  depends_on = [azurerm_route_table.route_table]
+  depends_on = [azurerm_route_table.route_table_aks]
 
   subnet_id      = data.azurerm_subnet.exist_sn_fe.id
   route_table_id = azurerm_route_table.route_table_aks.id
