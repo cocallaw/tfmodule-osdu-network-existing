@@ -47,8 +47,7 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_aks_rt"></a> [aks\_rt](#output\_aks\_rt) | Object containing AKS route table information. |
-| <a name="output_aks_sn_id"></a> [aks\_sn\_id](#output\_aks\_sn\_id) | Subnet data object. |
 | <a name="output_exist_vnet_id"></a> [exist\_vnet\_id](#output\_exist\_vnet\_id) | Virtual network id. |
 | <a name="output_exist_vnet_name"></a> [exist\_vnet\_name](#output\_exist\_vnet\_name) | Virtual network name. |
-| <a name="output_fe_sn_id"></a> [fe\_sn\_id](#output\_fe\_sn\_id) | Subnet data object. |
+| <a name="output_sn_id"></a> [sn\_id](#output\_sn\_id) | Object containing subnet ID information. |
 <!-- END_TF_DOCS -->
