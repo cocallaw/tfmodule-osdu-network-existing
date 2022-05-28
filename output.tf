@@ -8,16 +8,14 @@ output "exist_vnet_id" {
   value       = data.azurerm_virtual_network.exist_vnet.id
 }
 
-output "fe_sn_id" {
-  description = "Subnet data object."
-  value       = data.azurerm_subnet.exist_sn_fe.id
+output "sn_id" {
+  description = "Object containing subnet ID information."
+  value       = {
+      fe       = data.azurerm_subnet.exist_sn_fe.id
+      aks      = data.azurerm_subnet.exist_sn_aks.id
+  }
 }
 
-output "aks_sn_id" {
-  description = "Subnet data object."
-  value       = data.azurerm_subnet.exist_sn_aks.id
-}
-  
 output "aks_rt" {
   description = "Object containing AKS route table information."
   value       = {
